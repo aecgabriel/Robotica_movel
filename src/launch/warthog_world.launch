@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="headless" default="false" />
+  <arg name="world_name" default="worlds/empty.world" />
+
+  <!-- Launch Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="0" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="headless" value="$(arg headless)" />
+    <arg name="world_name" value="$(arg world_name)" />
+  </include>
+
+  <!-- Add a single Warthog robot -->
+  <include file="$(find warthog_gazebo)/launch/warthog_sim.launch">
+  </include>
+
+  <node name="Aruco_0" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+  args="-file $(find robotica_movel)/src/aruco/aruco_6x6_0.urdf 
+  -urdf -x 4.923 -y -0.66 -z 1 -R 0.0 -P 0.0 -Y 3.14 -model aruco_6x6_0"/>
+  <node name="Aruco_1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+  args="-file $(find robotica_movel)/src/aruco/aruco_6x6_1.urdf 
+  -urdf -x 4.923 -y 8 -z 1 -R 0.0 -P 0.0 -Y 3.14 -model aruco_6x6_1"/>
+  <node name="Aruco_4" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+  args="-file $(find robotica_movel)/src/aruco/aruco_6x6_4.urdf 
+  -urdf -x 8 -y -0.66 -z 1 -R 0.0 -P 0.0 -Y 3.14 -model aruco_6x6_4"/>
+</launch>

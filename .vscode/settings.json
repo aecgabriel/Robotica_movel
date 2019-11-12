@@ -1,0 +1,10 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.autoComplete.extraPaths": [
+        "/home/gabriel/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/kinetic/lib/python2.7/dist-packages",
+        "/home/gabriel/Documents/repositorios/mixcell/source_code"
+    ]
+}
